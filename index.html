@@ -6,6 +6,11 @@ HTML
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First GitHub Webpage</title>
     <style>
+        /* Universal reset ensuring padding doesn't affect width calculations */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f7f6;
@@ -29,31 +34,33 @@ HTML
 
         .featured-image {
             width: 100%;
-            max-width: 100%;
             height: auto;
             border-radius: 8px;
             margin: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            display: block;
         }
 
         ul {
             background-color: #ffffff;
-            padding: 20px 40px;
+            padding: 20px 30px 20px 40px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
         li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         a {
             color: #2980b9;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.2s ease-in-out;
         }
 
         a:hover {
+            color: #16a085;
             text-decoration: underline;
         }
     </style>
@@ -71,7 +78,6 @@ HTML
         <li>🎉 Share my site with friends and family</li>
     </ul>
 
-    <!-- PASTE YOUR NEW LINK HERE -->
     <p>Check out my favorite website: <a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia</a>!</p>
 </body>
 </html>
