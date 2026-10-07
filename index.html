@@ -6,7 +6,6 @@ HTML
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First GitHub Webpage</title>
     <style>
-        /* Body controls the overall background, font, and layout width */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f7f6;
@@ -17,20 +16,27 @@ HTML
             line-height: 1.6;
         }
 
-        /* Styling for the main header */
         h1 {
             color: #2c3e50;
             border-bottom: 2px solid #2c3e50;
             padding-bottom: 10px;
         }
 
-        /* Styling for subheadings */
         h2 {
             color: #16a085;
             margin-top: 30px;
         }
 
-        /* Turns the list into a white card box */
+        /* Image styling to ensure responsiveness */
+        .featured-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
         ul {
             background-color: #ffffff;
             padding: 20px 40px;
@@ -38,19 +44,16 @@ HTML
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        /* Spacing between list items */
         li {
             margin-bottom: 8px;
         }
 
-        /* Link styling */
         a {
             color: #2980b9;
             text-decoration: none;
             font-weight: bold;
         }
 
-        /* Link style when hovered over with a mouse */
         a:hover {
             text-decoration: underline;
         }
@@ -59,6 +62,9 @@ HTML
 <body>
     <h1>Web Development 101</h1>
     <p>Welcome to Web Development 101! In this class, we are learning the fundamentals of coding, building modern websites, and publishing our projects live using GitHub Pages.</p>
+
+    <!-- Image Tag -->
+    <img src="workspace.jpg" alt="A modern desk setup with a laptop showing code" class="featured-image">
 
     <h2>My Coding Goals</h2>
     <ul>
