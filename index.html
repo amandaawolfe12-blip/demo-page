@@ -10,22 +10,22 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7f6;
-            color: #333333;
-            max-width: 650px;
-            margin: 40px auto;
-            padding: 20px;
-            line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            position: relative;
-            overflow-x: hidden;
+            font-family: Arial, sans-serif; 
+            background-color: #f4f7f6; 
+            color: #333333; 
+            max-width: 650px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            line-height: 1.6; 
+            transition: background-color 0.3s ease, color 0.3s ease; 
+            position: relative; 
+            overflow-x: hidden; 
         }
 
         /* Dark Mode Color Styles */
         body.dark-mode {
-            background-color: #1a252f;
-            color: #ecf0f1;
+            background-color: #1a252f; 
+            color: #ecf0f1; 
         }
 
         body.dark-mode h1 {
@@ -56,7 +56,7 @@
             margin-top: 30px;
         }
 
-        .featured-image {
+        .featured-image { <!-- This is an image -->
             width: 100%;
             height: auto;
             border-radius: 8px;
@@ -167,85 +167,85 @@
 <body>
     <!-- Interactive Buttons -->
     <div class="button-group">
-        <button class="theme-btn" onclick="toggleTheme()">🌙 Switch to Dark Mode</button>
-        <button class="fun-btn" onclick="celebrate()">🎉 Celebrate!</button>
-        <button class="fact-btn" onclick="showRandomFact()">💡 Fun Fact</button>
-        <button class="greet-btn" onclick="askForName()">👋 Say Hello</button>
+        <button class="theme-btn" onclick="toggleTheme()">🌙 Switch to Dark Mode</button> <!-- This labels and activates the button -->
+        <button class="fun-btn" onclick="celebrate()">🎉 Celebrate!</button> <!-- This labels and activates another button -->
+        <button class="fact-btn" onclick="showRandomFact()">💡 Fun Fact</button> <!-- This labels and activates another button -->
+        <button class="greet-btn" onclick="askForName()">👋 Say Hello</button> <!-- This labels and activates another button ->
     </div>
 
-    <h1>Web Development 101</h1>
-    <p id="welcome-text">Welcome to Web Development 101! In this class, we are learning the fundamentals of coding, building modern websites, and publishing our projects live using GitHub Pages.</p>
+    <h1>Web Development 101</h1> <!-- This names the website -->
+    <p id="welcome-text">Welcome to Web Development 101! In this class, we are learning the fundamentals of coding, building modern websites, and publishing our projects live using GitHub Pages.</p> <!-- This is an intro sentence -->
 
     <!-- Fact Display Box -->
-    <div id="fact-container" class="fact-box">
-        💡 <strong>Did you know?</strong> Click the "Fun Fact" button above to learn cool tech trivia!
+    <div id="fact-container" class="fact-box"> <!-- This sets the fact display box -->
+        💡 <strong>Did you know?</strong> Click the "Fun Fact" button above to learn cool tech trivia! <!-- This is instructions -->
     </div>
 
-    <img src="workspace.jpg" alt="A modern desk setup with a laptop showing code" class="featured-image">
+    <img src="workspace.jpg" alt="A modern desk setup with a laptop showing code" class="featured-image"> <!-- This is an image -->
 
-    <h2>My Coding Goals</h2>
+    <h2>My Coding Goals</h2> <!-- Heading for my goals -->
     <ul>
-        <li>🚀 Learn HTML and CSS basics</li>
-        <li>💻 Publish my first live website</li>
-        <li>🎉 Share my site with friends and family</li>
+        <li>🚀 Learn HTML and CSS basics</li> <!-- This is a sentence -->
+        <li>💻 Publish my first live website</li> <!-- This is a sentence -->
+        <li>🎉 Share my site with friends and family</li> <!-- This is a sentence -->
     </ul>
 
-    <p>Check out my favorite website: <a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia</a>!</p>
+    <p>Check out my favorite website: <a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia</a>!</p> <!-- This is a sentence w/ a website link -->
 
     <!-- JavaScript Code -->
     <script>
-        function toggleTheme() {
-            document.body.classList.toggle("dark-mode");
+        function toggleTheme() { <!-- This sets up dark mdoe -->
+            document.body.classList.toggle("dark-mode"); <!-- This enables dark mode -->
             
-            var button = document.querySelector(".theme-btn");
-            if (document.body.classList.contains("dark-mode")) {
-                button.textContent = "☀️ Switch to Light Mode";
+            var button = document.querySelector(".theme-btn"); <!-- This sets up dark mode button -->
+            if (document.body.classList.contains("dark-mode")) { <!-- This part of dark mode -->
+                button.textContent = "☀️ Switch to Light Mode"; <!-- This switches label to light mode -->
             } else {
-                button.textContent = "🌙 Switch to Dark Mode";
+                button.textContent = "🌙 Switch to Dark Mode"; <!-- This switches label to dark mode -->
             }
         }
 
-        function celebrate() {
-            var emojis = ["🎉", "🚀", "💻", "✨", "🌟", "🎈", "🔥"];
+        function celebrate() { <!-- This sets up celebrate button -->
+            var emojis = ["🎉", "🚀", "💻", "✨", "🌟", "🎈", "🔥"]; <!-- This sets up list of emojis -->
             
-            for (var i = 0; i < 20; i++) {
-                (function() {
-                    var confetti = document.createElement("div");
-                    confetti.classList.add("confetti-piece");
-                    confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                    confetti.style.left = (Math.random() * 90 + 5) + "vw";
-                    confetti.style.top = (Math.random() * 20 + 70) + "vh";
-                    document.body.appendChild(confetti);
+            for (var i = 0; i < 20; i++) { <!-- This starts the button -->
+                (function() { <!-- This controls the button -->
+                    var confetti = document.createElement("div"); <!-- This enables the confetti -->
+                    confetti.classList.add("confetti-piece"); <!-- Thsi sets up the confetti -->
+                    confetti.textContent = emojis[Math.floor(Math.random() * emojis.length)]; <!-- This controls the emojis -->
+                    confetti.style.left = (Math.random() * 90 + 5) + "vw"; <!-- This controls the emojis location -->
+                    confetti.style.top = (Math.random() * 20 + 70) + "vh"; <!-- This controls the emoji location -->
+                    document.body.appendChild(confetti); <!-- This sets up the confetti -->
                     
-                    setTimeout(function() {
-                        confetti.remove();
-                    }, 2000);
+                    setTimeout(function() { <!-- This stops the confetti -->
+                        confetti.remove(); <!-- This disables the confetti -->
+                    }, 2000); <!-- Helps end confetti -->
                 })();
             }
         }
 
-        function showRandomFact() {
-            var facts = [
-                "The first web page went live on August 6, 1991, created by Tim Berners-Lee.",
-                "The first computer programmer was Ada Lovelace, who wrote an algorithm in 1843!",
-                "Over 98% of all websites use JavaScript for front-end page interactivity.",
-                "The original name for Java was Oak, named after a tree outside the developer's window.",
-                "GitHub now hosts millions of open-source software projects across the world!"
+        function showRandomFact() { <!-- This generates a random fact -->
+            var facts = [ <!-- This sets up the deifferent fun facts -->
+                "The first web page went live on August 6, 1991, created by Tim Berners-Lee.", <!-- This is a fun fact -->
+                "The first computer programmer was Ada Lovelace, who wrote an algorithm in 1843!", <!-- This is a fun fact -->
+                "Over 98% of all websites use JavaScript for front-end page interactivity.", <!-- This is a fun fact -->
+                "The original name for Java was Oak, named after a tree outside the developer's window.", <!-- This is a fun fact -->
+                "GitHub now hosts millions of open-source software projects across the world!" <!-- This is a fun fact -->
             ];
 
-            var randomIndex = Math.floor(Math.random() * facts.length);
-            var factContainer = document.getElementById("fact-container");
-            if (factContainer) {
-                factContainer.innerHTML = "💡 <strong>Did you know?</strong> " + facts[randomIndex];
+            var randomIndex = Math.floor(Math.random() * facts.length); <!-- This randomizes the fact -->
+            var factContainer = document.getElementById("fact-container"); <!-- This holds all the facts -->
+            if (factContainer) { <!-- This holds the facts -->
+                factContainer.innerHTML = "💡 <strong>Did you know?</strong> " + facts[randomIndex]; <!-- This asks a question then shows the fun fact -->
             }
         }
 
-        function askForName() {
-            var userName = prompt("What is your name?");
-            if (userName && userName.trim() !== "") {
-                var welcomeText = document.getElementById("welcome-text");
-                if (welcomeText) {
-                    welcomeText.textContent = "Welcome, " + userName.trim() + "! Glad to have you exploring my Web Development 101 page.";
+        function askForName() { <!-- This asks for the users name -->
+            var userName = prompt("What is your name?"); <!-- This asks a question -->
+            if (userName && userName.trim() !== "") { <!-- Thsi saves the users input -->
+                var welcomeText = document.getElementById("welcome-text"); <!-- This sets up the welcome text -->
+                if (welcomeText) { <!-- This controls the welcome text -->
+                    welcomeText.textContent = "Welcome, " + userName.trim() + "! Glad to have you exploring my Web Development 101 page.";<!-- This writes out the welcome text -->
                 }
             }
         }
