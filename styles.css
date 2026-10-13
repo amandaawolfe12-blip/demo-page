@@ -1,7 +1,7 @@
 /* Cozy fall webpage layout */
 body {
     font-family: "Times New Roman", Times, serif;
-    background-color: #fcf6ed; /* Warm cozy parchment */
+    background-color: #fcf6ed; /* Warm cozy parchment background */
     color: #4a3525; /* Dark warm brown text */
     max-width: 700px;
     margin: 40px auto;
@@ -9,20 +9,20 @@ body {
     line-height: 1.6;
 }
 
-/* Cozy dark mode */
+/* Cozy dark mode scheme */
 body.dark-mode {
     background-color: #221813; /* Deep cinnamon dark background */
     color: #f4eae1;
 }
 
-/* Titles and section headings */
+/* Page title and section headings */
 h1 {
-    color: #c05a30; /* Pumpkin terracotta */
+    color: #c05a30; /* Pumpkin terracotta title */
     text-align: center;
 }
 
 h2 {
-    color: #6b705c; /* Muted sage leaf green */
+    color: #6b705c; /* Muted sage green heading */
     border-bottom: 2px solid #d9822b; /* Amber autumn underline */
     padding-bottom: 5px;
     margin-top: 30px;
@@ -37,7 +37,7 @@ body.dark-mode h2 {
     border-bottom-color: #e59943;
 }
 
-/* Button layout */
+/* Button group layout */
 .button-group {
     display: flex;
     flex-wrap: wrap;
@@ -46,7 +46,7 @@ body.dark-mode h2 {
     margin-bottom: 25px;
 }
 
-/* Base button style */
+/* Base button styling */
 button {
     font-family: "Times New Roman", Times, serif;
     font-size: 14px;
@@ -92,7 +92,7 @@ body.dark-mode .fact-box {
     color: #f4eae1;
 }
 
-/* Featured images */
+/* Featured images formatting */
 .featured-image {
     width: 100%;
     max-width: 500px;
@@ -102,7 +102,7 @@ body.dark-mode .fact-box {
     border: 2px solid #6b705c;
 }
 
-/* Links */
+/* Links styling */
 a {
     color: #c05a30;
     font-weight: bold;
@@ -117,7 +117,7 @@ body.dark-mode a {
     color: #e07043;
 }
 
-/* Lists */
+/* Lists styling */
 ul, ol {
     padding-left: 25px;
 }
@@ -126,7 +126,7 @@ li {
     margin-bottom: 8px;
 }
 
-/* Confetti emojis */
+/* Confetti emoji animation */
 .confetti-piece {
     position: fixed;
     font-size: 24px;
@@ -148,28 +148,28 @@ li {
 /* --- MOVING SNOOPY ANIMATION --- */
 
 .snoopy-walker {
-    position: fixed; /* Keeps him locked near the bottom of the screen */
+    position: fixed; /* Keeps locked near the bottom of screen */
     bottom: 10px;
-    left: -100px; /* Starts off-screen to the left */
-    width: 70px; /* Small, subtle character size */
+    left: -100px; /* Starts off-screen to left */
+    width: 70px; /* Subtle character size */
     z-index: 999;
-    pointer-events: none; /* Allows you to click things through him */
-    animation: walkAcross 16s linear infinite; /* Takes 16 seconds to walk across and repeat */
+    pointer-events: none; /* Allows clicks through character */
+    animation: walkAcross 16s linear infinite; /* Loops every 16 seconds */
 }
 
-/* Controls Snoopy's movement path */
+/* Controls Snoopy's movement path back and forth */
 @keyframes walkAcross {
     0% {
         left: -100px;
         transform: scaleX(1); /* Facing right */
     }
     48% {
-        left: 100vw; /* Reaches the right edge */
+        left: 100vw; /* Reaches right edge */
         transform: scaleX(1);
     }
     50% {
         left: 100vw;
-        transform: scaleX(-1); /* Flips around to face left */
+        transform: scaleX(-1); /* Flips left */
     }
     98% {
         left: -100px; /* Walks back to left side */
@@ -177,6 +177,6 @@ li {
     }
     100% {
         left: -100px;
-        transform: scaleX(1); /* Turns back facing right */
+        transform: scaleX(1); /* Flips right again */
     }
 }
