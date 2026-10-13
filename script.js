@@ -31,6 +31,35 @@ function changeFontAndText() {
     currentFontIndex = (currentFontIndex + 1) % fonts.length;
 
     // Apply the new font to the whole page
+
+    // Function to read text input and append it to the page
+function addCozyNote() {
+    var inputField = document.getElementById("user-note-input");
+    var displayBoard = document.getElementById("notes-display-board");
+
+    // Make sure elements exist before running
+    if (!inputField || !displayBoard) return;
+
+    // Get input text and strip extra whitespace
+    var noteText = inputField.value.trim();
+
+    // Prevent posting empty notes
+    if (noteText === "") {
+        alert("Please write a short note before posting! 🍂");
+        return;
+    }
+
+    // Create a new note element
+    var newNote = document.createElement("div");
+    newNote.classList.add("note-card");
+    newNote.innerHTML = "🍁 " + noteText;
+
+    // Add new note to top of the board
+    displayBoard.prepend(newNote);
+
+    // Clear input field for next message
+    inputField.value = "";
+}
     document.body.style.fontFamily = fonts[currentFontIndex];
 
     // Update the main heading text
