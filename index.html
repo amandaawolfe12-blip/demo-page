@@ -49,6 +49,22 @@
     <img src="gilmoregirls.jpg" alt="Gilmore Girls logo" class="featured-image"> <!-- Picture of Gilmore Girls logo -->
     <p>Check out my favorite website: <a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia</a>!</p> <!-- This is a sentence w/ a website link -->
 
+
+    <h2>Mini-Game: Leaf Catcher! 🍁</h2> <!-- Heading for the autumn mini-game -->
+
+    <div class="game-container"> <!-- Container box for the mini-game -->
+
+        <p>Click as many falling leaves as you can before time runs out!</p> <!-- Game description text -->
+        <div class="game-stats"> <!-- Display for score and remaining time -->
+            <span>Score: <strong id="game-score">0</strong></span> <!-- Score display -->
+            <span>Time Left: <strong id="game-timer">15</strong>s</span> <!-- Score disply -->
+        </div>
+
+        <button id="start-game-btn" class="fun-btn" onclick="startGame()">▶️ Start Game</button> <!-- Start game button -->
+
+        <div id="game-board"></div> <!-- The game board area where leaves appear -->
+    </div>
+
     <!-- JavaScript Code -->
     <script>
         function toggleTheme() { // This sets up dark mdoe
