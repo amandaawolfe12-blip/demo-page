@@ -37,13 +37,11 @@ function changeFontAndText() {
 
 // Function to read text input and append it to the page
 function addCozyNote() {
-    console.log("Post Note button clicked!");
-
     var inputField = document.getElementById("user-note-input");
     var displayBoard = document.getElementById("notes-display-board");
 
     if (!inputField || !displayBoard) {
-        alert("Error: Couldn't find the text box or display board IDs in your HTML!");
+        alert("Error: Couldn't find 'user-note-input' or 'notes-display-board' in your HTML!");
         return;
     }
 
@@ -64,10 +62,15 @@ function addCozyNote() {
 
 // Function using if/else logic to show custom messages based on user input
 function checkFallVibe() {
-    var flavorInput = document.getElementById("vibe-input").value.toLowerCase().trim();
+    var vibeInput = document.getElementById("vibe-input");
     var resultDisplay = document.getElementById("vibe-result");
 
-    if (!resultDisplay) return;
+    if (!vibeInput || !resultDisplay) {
+        alert("Error: Couldn't find 'vibe-input' or 'vibe-result' in your HTML!");
+        return;
+    }
+
+    var flavorInput = vibeInput.value.toLowerCase().trim();
 
     // Condition 1: Check if the user left the input blank
     if (flavorInput === "") {
