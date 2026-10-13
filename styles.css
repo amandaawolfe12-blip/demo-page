@@ -218,6 +218,16 @@ body.dark-mode .game-stats {
     margin-top: 15px;
     border: 1px solid #6b705c;
 }
+
+.falling-leaf {
+    position: absolute;
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s ease;
+}
+
+.falling-leaf:active {
     transform: scale(1.3); /* Grows slightly when clicked */
 }
 
