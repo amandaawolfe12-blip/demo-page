@@ -74,68 +74,75 @@
         var leafInterval = null; // Spawning leaves loop
         var isGameRunning = false; // Prevents starting multiple games at once
 
-        // Function to start the leaf catching game
+       // --- MINI-GAME LOGIC ---
+        var score = 0;
+        var timeLeft = 15;
+        var gameInterval = null;
+        var leafInterval = null;
+        var isGameRunning = false;
+
         function startGame() {
-            if (isGameRunning) return; // Exit if game is already playing
+            if (isGameRunning) return;
             
-            // Reset game variables
             score = 0;
             timeLeft = 15;
             isGameRunning = true;
             
-            // Update UI displays
             document.getElementById("game-score").textContent = score;
             document.getElementById("game-timer").textContent = timeLeft;
-            document.getElementById("start-game-btn").disabled = true; // Disable start button during play
+            document.getElementById("start-game-btn").disabled = true;
             
             var board = document.getElementById("game-board");
-            board.innerHTML = ""; // Clear old leaves from board
+            board.innerHTML = "";
 
-            // Countdown timer running every second
+            // 15 second countdown timer
             gameInterval = setInterval(function() {
                 timeLeft--;
                 document.getElementById("game-timer").textContent = timeLeft;
                 
                 if (timeLeft <= 0) {
-                    endGame(); // Stop game when time hits 0
+                    endGame();
                 }
             }, 1000);
 
-            // Spawns a new falling leaf every 500 milliseconds
+            // Spawns 1 leaf every 1.2 seconds
             leafInterval = setInterval(function() {
                 spawnLeaf();
-            }, 500);
+            }, 1200);
+
+            // Spawn first leaf right away
+            spawnLeaf();
         }
 
-        // Function to create individual falling leaves
         function spawnLeaf() {
             var board = document.getElementById("game-board");
             if (!board || !isGameRunning) return;
 
-            var leaf = document.createElement("span"); // Creates a new span element
-            leaf.classList.add("falling-leaf"); // Applies falling leaf styling
+            var leaf = document.createElement("span");
+            leaf.classList.add("falling-leaf");
             
-            var leafEmojis = ["🍂", "🍁", "🌾", "🌰"]; // Autumn emoji variety
-            leaf.textContent = leafEmojis[Math.floor(Math.random() * leafEmojis.length)]; // Chooses random emoji
+            var leafEmojis = ["🍂", "🍁", "🌾", "🌰"];
+            leaf.textContent = leafEmojis[Math.floor(Math.random() * leafEmojis.length)];
             
-            // Sets random horizontal starting spot inside board
-            var randomX = Math.random() * (board.clientWidth - 40);
+            // Spreads leaves evenly across the full width of the board
+            var boardWidth = board.clientWidth || 300;
+            var randomX = Math.floor(Math.random() * (boardWidth - 60)) + 10;
             leaf.style.left = randomX + "px";
             leaf.style.top = "0px";
             
-            // Click event to catch leaf and gain point
+            // Click to catch leaf
             leaf.onclick = function() {
                 if (!isGameRunning) return;
-                score++; // Increases score
-                document.getElementById("game-score").textContent = score; // Updates score UI
-                leaf.remove(); // Removes caught leaf from screen
+                score++;
+                document.getElementById("game-score").textContent = score;
+                leaf.remove();
             };
 
-            board.appendChild(leaf); // Adds leaf to game board
+            board.appendChild(leaf);
 
-            // Animates leaf falling downwards
+            // Gentle falling animation (takes ~4-5 seconds per leaf)
             var topPos = 0;
-            var fallSpeed = Math.random() * 2 + 1.5; // Random fall speed
+            var fallSpeed = Math.random() * 0.5 + 0.8; 
             var fallTimer = setInterval(function() {
                 if (!isGameRunning || !leaf.parentNode) {
                     clearInterval(fallTimer);
@@ -144,25 +151,23 @@
                 topPos += fallSpeed;
                 leaf.style.top = topPos + "px";
 
-                // Removes leaf if it reaches bottom of game board
-                if (topPos > board.clientHeight - 35) {
+                if (topPos > board.clientHeight - 40) {
                     clearInterval(fallTimer);
                     if (leaf.parentNode) {
                         leaf.remove();
                     }
                 }
-            }, 20);
+            }, 25);
         }
 
-        // Function to handle end of game
         function endGame() {
             isGameRunning = false;
-            clearInterval(gameInterval); // Stops timer
-            clearInterval(leafInterval); // Stops spawning leaves
-            document.getElementById("start-game-btn").disabled = false; // Re-enables start button
+            clearInterval(gameInterval);
+            clearInterval(leafInterval);
+            document.getElementById("start-game-btn").disabled = false;
             
             var board = document.getElementById("game-board");
-            board.innerHTML = "<p style='padding-top: 75px; font-weight: bold; font-size: 18px;'>🎉 Game Over! Final Score: " + score + "</p>";
+            board.innerHTML = "<p style='padding-top: 100px; font-weight: bold; font-size: 18px;'>🎉 Game Over! Final Score: " + score + "</p>";
         }
         function toggleTheme() { // This sets up dark mdoe
             document.body.classList.toggle("dark-mode"); // This enables dark mode
