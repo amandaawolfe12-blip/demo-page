@@ -97,3 +97,44 @@ function checkFallVibe() {
         resultDisplay.innerHTML = "🍂 <strong>" + flavorInput + "</strong> sounds delicious! You have a totally unique fall aesthetic!";
     }
 }
+
+// Function to generate a random autumn activity combo using multiple arrays
+function generateRandomActivity() {
+    var activities = [
+        "Go apple picking at a local orchard",
+        "Bake fresh cinnamon sugar donuts",
+        "Take a scenic drive to look at peak fall foliage",
+        "Carve pumpkins and roast the seeds",
+        "Binge-watch classic Gilmore Girls episodes",
+        "Read a mystery novel under a soft knit blanket",
+        "Visit a local corn maze with friends",
+        "Have a cozy movie marathon with hot cocoa"
+    ];
+
+    var treats = [
+        "a warm Pumpkin Spice Latte ☕",
+        "a steaming mug of Apple Cider 🍎",
+        "a cup of Hot Chocolate with marshmallows 🍫",
+        "a fresh slice of Warm Pecan Pie 🥧",
+        "a salted caramel apple 🍏",
+        "a cup of Spiced Chai Tea 🍵"
+    ];
+
+    var weatherVibes = [
+        "on a crisp, sunny afternoon ☀️",
+        "while rain gently taps on the window 🌧️",
+        "on a breezy, overcast chilly morning 🍂",
+        "as the golden hour sunset lights up the leaves 🌅",
+        "on a foggy, sweater-weather evening 🌫️"
+    ];
+
+    // Pick a random index from each array independently
+    var randomActivity = activities[Math.floor(Math.random() * activities.length)];
+    var randomTreat = treats[Math.floor(Math.random() * treats.length)];
+    var randomVibe = weatherVibes[Math.floor(Math.random() * weatherVibes.length)];
+
+    var resultBox = document.getElementById("activity-result");
+    if (resultBox) {
+        resultBox.innerHTML = "✨ <strong>Your Autumn Plan:</strong> " + randomActivity + " alongside " + randomTreat + " " + randomVibe + "!";
+    }
+}
