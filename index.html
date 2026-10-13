@@ -105,12 +105,13 @@
                 }
             }, 1000);
 
-            // Spawns 1 leaf every 1.2 seconds
+            // Spawns a new leaf every 400ms so multiple fall together
             leafInterval = setInterval(function() {
                 spawnLeaf();
-            }, 1200);
+            }, 400);
 
-            // Spawn first leaf right away
+            // Spawn 2 leaves right when the game starts
+            spawnLeaf();
             spawnLeaf();
         }
 
@@ -124,13 +125,14 @@
             var leafEmojis = ["🍂", "🍁", "🌾", "🌰"];
             leaf.textContent = leafEmojis[Math.floor(Math.random() * leafEmojis.length)];
             
-            // Spreads leaves evenly across the full width of the board
-            var boardWidth = board.clientWidth || 300;
-            var randomX = Math.floor(Math.random() * (boardWidth - 60)) + 10;
+            // Random horizontal position across the full board width
+            var boardWidth = board.clientWidth > 0 ? board.clientWidth : 300;
+            var randomX = Math.floor(Math.random() * (boardWidth - 45)) + 5;
+            
             leaf.style.left = randomX + "px";
             leaf.style.top = "0px";
             
-            // Click to catch leaf
+            // Click handler to catch leaf
             leaf.onclick = function() {
                 if (!isGameRunning) return;
                 score++;
@@ -140,9 +142,9 @@
 
             board.appendChild(leaf);
 
-            // Gentle falling animation (takes ~4-5 seconds per leaf)
+            // Falling animation with randomized speeds
             var topPos = 0;
-            var fallSpeed = Math.random() * 0.5 + 0.8; 
+            var fallSpeed = Math.random() * 1.2 + 1.0; 
             var fallTimer = setInterval(function() {
                 if (!isGameRunning || !leaf.parentNode) {
                     clearInterval(fallTimer);
@@ -151,13 +153,13 @@
                 topPos += fallSpeed;
                 leaf.style.top = topPos + "px";
 
-                if (topPos > board.clientHeight - 40) {
+                if (topPos > board.clientHeight - 35) {
                     clearInterval(fallTimer);
                     if (leaf.parentNode) {
                         leaf.remove();
                     }
                 }
-            }, 25);
+            }, 20);
         }
 
         function endGame() {
