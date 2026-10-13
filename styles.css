@@ -298,3 +298,66 @@ body.dark-mode ::-webkit-scrollbar-thumb {
     border-color: #221813;
 }
 
+/* --- NOTE WALL STYLING --- */
+
+.note-container {
+    background-color: #f3e9da;
+    border: 2px solid #6b705c;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px 0;
+    text-align: center;
+}
+
+body.dark-mode .note-container {
+    background-color: #33251e;
+    border-color: #929982;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.input-group input[type="text"] {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+    padding: 8px 12px;
+    border: 1px solid #d9822b;
+    border-radius: 6px;
+    width: 70%;
+    max-width: 350px;
+    background-color: #fcf6ed;
+    color: #4a3525;
+}
+
+body.dark-mode .input-group input[type="text"] {
+    background-color: #221813;
+    color: #f4eae1;
+    border-color: #e59943;
+}
+
+.notes-board {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+.note-card {
+    background-color: #fcf6ed;
+    border-left: 4px solid #c05a30;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .note-card {
+    background-color: #221813;
+    border-left-color: #e07043;
+}
