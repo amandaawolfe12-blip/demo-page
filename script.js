@@ -31,6 +31,19 @@ function changeFontAndText() {
 
     var mainTitle = document.querySelector("h1");
     if (mainTitle) {
+
+        function runQuiz() {
+    var choice = document.getElementById("quiz-select").value;
+    var result = document.getElementById("quiz-result");
+
+    if (choice === "book") {
+        result.innerHTML = "📖 <strong>You are an Oak Leaf!</strong> Wise, quiet, and cozy.";
+    } else if (choice === "walk") {
+        result.innerHTML = "🍁 <strong>You are a Golden Maple Leaf!</strong> Energetic, adventurous, and bright.";
+    } else {
+        result.innerHTML = "🥧 <strong>You are a Sweet Birch Leaf!</strong> Warm, welcoming, and loved by everyone.";
+    }
+}
         mainTitle.textContent = titles[currentFontIndex];
     }
 }
