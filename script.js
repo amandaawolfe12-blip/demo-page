@@ -31,19 +31,6 @@ function changeFontAndText() {
 
     var mainTitle = document.querySelector("h1");
     if (mainTitle) {
-
-        function runQuiz() {
-    var choice = document.getElementById("quiz-select").value;
-    var result = document.getElementById("quiz-result");
-
-    if (choice === "book") {
-        result.innerHTML = "📖 <strong>You are an Oak Leaf!</strong> Wise, quiet, and cozy.";
-    } else if (choice === "walk") {
-        result.innerHTML = "🍁 <strong>You are a Golden Maple Leaf!</strong> Energetic, adventurous, and bright.";
-    } else {
-        result.innerHTML = "🥧 <strong>You are a Sweet Birch Leaf!</strong> Warm, welcoming, and loved by everyone.";
-    }
-}
         mainTitle.textContent = titles[currentFontIndex];
     }
 }
@@ -53,10 +40,7 @@ function addCozyNote() {
     var inputField = document.getElementById("user-note-input");
     var displayBoard = document.getElementById("notes-display-board");
 
-    if (!inputField || !displayBoard) {
-        alert("Error: Couldn't find 'user-note-input' or 'notes-display-board' in your HTML!");
-        return;
-    }
+    if (!inputField || !displayBoard) return;
 
     var noteText = inputField.value.trim();
 
@@ -78,40 +62,26 @@ function checkFallVibe() {
     var vibeInput = document.getElementById("vibe-input");
     var resultDisplay = document.getElementById("vibe-result");
 
-    if (!vibeInput || !resultDisplay) {
-        alert("Error: Couldn't find 'vibe-input' or 'vibe-result' in your HTML!");
-        return;
-    }
+    if (!vibeInput || !resultDisplay) return;
 
     var flavorInput = vibeInput.value.toLowerCase().trim();
 
-    // Condition 1: Check if the user left the input blank
     if (flavorInput === "") {
         resultDisplay.innerHTML = "⚠️ <strong>Please type a flavor or drink first!</strong>";
-    } 
-    // Condition 2: Pumpkin or Latte
-    else if (flavorInput.includes("pumpkin") || flavorInput.includes("latte")) {
+    } else if (flavorInput.includes("pumpkin") || flavorInput.includes("latte")) {
         resultDisplay.innerHTML = "🎃 <strong>Classic Fall Vibe!</strong> You love sweater weather, autumn leaves, and golden sunsets!";
-    } 
-    // Condition 3: Apple or Cider
-    else if (flavorInput.includes("apple") || flavorInput.includes("cider")) {
+    } else if (flavorInput.includes("apple") || flavorInput.includes("cider")) {
         resultDisplay.innerHTML = "🍎 <strong>Crisp & Festive Vibe!</strong> You are definitely heading to an apple orchard and riding on hayrides!";
-    } 
-    // Condition 4: Chai or Cinnamon
-    else if (flavorInput.includes("chai") || flavorInput.includes("cinnamon")) {
+    } else if (flavorInput.includes("chai") || flavorInput.includes("cinnamon")) {
         resultDisplay.innerHTML = "☕ <strong>Spicy & Cozy Vibe!</strong> Perfect for curling up with a good book while rain taps on the window!";
-    } 
-    // Condition 5: Cocoa or Chocolate
-    else if (flavorInput.includes("cocoa") || flavorInput.includes("chocolate")) {
+    } else if (flavorInput.includes("cocoa") || flavorInput.includes("chocolate")) {
         resultDisplay.innerHTML = "🍫 <strong>Sweet & Warm Vibe!</strong> Nothing beats staying extra cozy on a chilly autumn evening!";
-    } 
-    // Fallback Condition: For any other drink/flavor typed
-    else {
+    } else {
         resultDisplay.innerHTML = "🍂 <strong>" + flavorInput + "</strong> sounds delicious! You have a totally unique fall aesthetic!";
     }
 }
 
-// Function to generate a random autumn activity combo using multiple arrays
+// Function to generate a random autumn activity combo
 function generateRandomActivity() {
     var activities = [
         "Go apple picking at a local orchard",
@@ -141,7 +111,6 @@ function generateRandomActivity() {
         "on a foggy, sweater-weather evening 🌫️"
     ];
 
-    // Pick a random index from each array independently
     var randomActivity = activities[Math.floor(Math.random() * activities.length)];
     var randomTreat = treats[Math.floor(Math.random() * treats.length)];
     var randomVibe = weatherVibes[Math.floor(Math.random() * weatherVibes.length)];
@@ -152,16 +121,23 @@ function generateRandomActivity() {
     }
 }
 
-var cozyAudio = new Audio("https://www.soundjay.com/nature/sounds/rain-01.mp3");
-cozyAudio.loop = true;
+// Function for the Autumn Personality Quiz
+function runQuiz() {
+    var selectElement = document.getElementById("quiz-select");
+    var resultElement = document.getElementById("quiz-result");
 
-function toggleCozyAudio() {
-    var button = document.getElementById("audio-btn");
-    if (cozyAudio.paused) {
-        cozyAudio.play();
-        button.textContent = "🔊 Pause Rain Sounds";
-    } else {
-        cozyAudio.pause();
-        button.textContent = "🌧️ Play Rain Sounds";
+    if (!selectElement || !resultElement) {
+        alert("Error: Check your index.html! Missing id='quiz-select' or id='quiz-result'");
+        return;
+    }
+
+    var choice = selectElement.value;
+
+    if (choice === "book") {
+        resultElement.innerHTML = "📖 <strong>You are an Oak Leaf!</strong> Wise, quiet, and cozy.";
+    } else if (choice === "walk") {
+        resultElement.innerHTML = "🍁 <strong>You are a Golden Maple Leaf!</strong> Energetic, adventurous, and bright.";
+    } else if (choice === "bake") {
+        resultElement.innerHTML = "🥧 <strong>You are a Sweet Birch Leaf!</strong> Warm, welcoming, and loved by everyone.";
     }
 }
