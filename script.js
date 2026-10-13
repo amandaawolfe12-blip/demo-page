@@ -61,3 +61,36 @@ function addCozyNote() {
     displayBoard.prepend(newNote);
     inputField.value = "";
 }
+
+// Function using if/else logic to show custom messages based on user input
+function checkFallVibe() {
+    var flavorInput = document.getElementById("vibe-input").value.toLowerCase().trim();
+    var resultDisplay = document.getElementById("vibe-result");
+
+    if (!resultDisplay) return;
+
+    // Condition 1: Check if the user left the input blank
+    if (flavorInput === "") {
+        resultDisplay.innerHTML = "⚠️ <strong>Please type a flavor or drink first!</strong>";
+    } 
+    // Condition 2: Pumpkin or Latte
+    else if (flavorInput.includes("pumpkin") || flavorInput.includes("latte")) {
+        resultDisplay.innerHTML = "🎃 <strong>Classic Fall Vibe!</strong> You love sweater weather, autumn leaves, and golden sunsets!";
+    } 
+    // Condition 3: Apple or Cider
+    else if (flavorInput.includes("apple") || flavorInput.includes("cider")) {
+        resultDisplay.innerHTML = "🍎 <strong>Crisp & Festive Vibe!</strong> You are definitely heading to an apple orchard and riding on hayrides!";
+    } 
+    // Condition 4: Chai or Cinnamon
+    else if (flavorInput.includes("chai") || flavorInput.includes("cinnamon")) {
+        resultDisplay.innerHTML = "☕ <strong>Spicy & Cozy Vibe!</strong> Perfect for curling up with a good book while rain taps on the window!";
+    } 
+    // Condition 5: Cocoa or Chocolate
+    else if (flavorInput.includes("cocoa") || flavorInput.includes("chocolate")) {
+        resultDisplay.innerHTML = "🍫 <strong>Sweet & Warm Vibe!</strong> Nothing beats staying extra cozy on a chilly autumn evening!";
+    } 
+    // Fallback Condition: For any other drink/flavor typed
+    else {
+        resultDisplay.innerHTML = "🍂 <strong>" + flavorInput + "</strong> sounds delicious! You have a totally unique fall aesthetic!";
+    }
+}
