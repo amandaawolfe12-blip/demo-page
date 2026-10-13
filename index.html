@@ -67,6 +67,103 @@
 
     <!-- JavaScript Code -->
     <script>
+        // --- MINI-GAME LOGIC ---
+        var score = 0; // Tracks current score
+        var timeLeft = 15; // Tracks countdown timer
+        var gameInterval = null; // Timer loop
+        var leafInterval = null; // Spawning leaves loop
+        var isGameRunning = false; // Prevents starting multiple games at once
+
+        // Function to start the leaf catching game
+        function startGame() {
+            if (isGameRunning) return; // Exit if game is already playing
+            
+            // Reset game variables
+            score = 0;
+            timeLeft = 15;
+            isGameRunning = true;
+            
+            // Update UI displays
+            document.getElementById("game-score").textContent = score;
+            document.getElementById("game-timer").textContent = timeLeft;
+            document.getElementById("start-game-btn").disabled = true; // Disable start button during play
+            
+            var board = document.getElementById("game-board");
+            board.innerHTML = ""; // Clear old leaves from board
+
+            // Countdown timer running every second
+            gameInterval = setInterval(function() {
+                timeLeft--;
+                document.getElementById("game-timer").textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    endGame(); // Stop game when time hits 0
+                }
+            }, 1000);
+
+            // Spawns a new falling leaf every 500 milliseconds
+            leafInterval = setInterval(function() {
+                spawnLeaf();
+            }, 500);
+        }
+
+        // Function to create individual falling leaves
+        function spawnLeaf() {
+            var board = document.getElementById("game-board");
+            if (!board || !isGameRunning) return;
+
+            var leaf = document.createElement("span"); // Creates a new span element
+            leaf.classList.add("falling-leaf"); // Applies falling leaf styling
+            
+            var leafEmojis = ["🍂", "🍁", "🌾", "🌰"]; // Autumn emoji variety
+            leaf.textContent = leafEmojis[Math.floor(Math.random() * leafEmojis.length)]; // Chooses random emoji
+            
+            // Sets random horizontal starting spot inside board
+            var randomX = Math.random() * (board.clientWidth - 40);
+            leaf.style.left = randomX + "px";
+            leaf.style.top = "0px";
+            
+            // Click event to catch leaf and gain point
+            leaf.onclick = function() {
+                if (!isGameRunning) return;
+                score++; // Increases score
+                document.getElementById("game-score").textContent = score; // Updates score UI
+                leaf.remove(); // Removes caught leaf from screen
+            };
+
+            board.appendChild(leaf); // Adds leaf to game board
+
+            // Animates leaf falling downwards
+            var topPos = 0;
+            var fallSpeed = Math.random() * 2 + 1.5; // Random fall speed
+            var fallTimer = setInterval(function() {
+                if (!isGameRunning || !leaf.parentNode) {
+                    clearInterval(fallTimer);
+                    return;
+                }
+                topPos += fallSpeed;
+                leaf.style.top = topPos + "px";
+
+                // Removes leaf if it reaches bottom of game board
+                if (topPos > board.clientHeight - 35) {
+                    clearInterval(fallTimer);
+                    if (leaf.parentNode) {
+                        leaf.remove();
+                    }
+                }
+            }, 20);
+        }
+
+        // Function to handle end of game
+        function endGame() {
+            isGameRunning = false;
+            clearInterval(gameInterval); // Stops timer
+            clearInterval(leafInterval); // Stops spawning leaves
+            document.getElementById("start-game-btn").disabled = false; // Re-enables start button
+            
+            var board = document.getElementById("game-board");
+            board.innerHTML = "<p style='padding-top: 75px; font-weight: bold; font-size: 18px;'>🎉 Game Over! Final Score: " + score + "</p>";
+        }
         function toggleTheme() { // This sets up dark mdoe
             document.body.classList.toggle("dark-mode"); // This enables dark mode
             
