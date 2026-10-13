@@ -180,3 +180,57 @@ li {
         transform: scaleX(1); /* Flips right again */
     }
 }
+/* --- MINI-GAME STYLING --- */
+
+.game-container {
+    background-color: #f3e9da;
+    border: 2px dashed #d9822b; /* Amber dashed border */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    margin: 35px 0;
+}
+
+body.dark-mode .game-container {
+    background-color: #33251e;
+    border-color: #e59943;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+    font-size: 18px;
+    margin: 15px 0;
+    font-weight: bold;
+    color: #4a3525;
+}
+
+body.dark-mode .game-stats {
+    color: #f4eae1;
+}
+
+#game-board {
+    position: relative;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 15px;
+    border: 1px solid #6b705c;
+}
+
+body.dark-mode #game-board {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.falling-leaf {
+    position: absolute;
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s ease;
+}
+
+.falling-leaf:active {
+    transform: scale(1.3); /* Grows slightly when clicked */
+}
