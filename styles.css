@@ -1,222 +1,182 @@
-/* ==========================================================================
-   styles.css - Natural / Autumn Tech Theme
-   Typography: Times New Roman
-   ========================================================================== */
-
-/* Natural Color Palette Variables */
-:root {
-  /* Light Mode Palette: Earthy Autumn & Warm Linen */
-  --bg-main: #f8f4ee;            /* Warm linen parchment background */
-  --bg-card: #ffffff;            /* Clean card background */
-  --text-main: #2d241e;          /* Deep espresso brown/charcoal */
-  --text-muted: #5e5046;         /* Soft earth tone text */
-  --primary: #a04926;            /* Terracotta / Rust */
-  --secondary: #4a5d4e;          /* Sage / Pine Green */
-  --accent-fun: #d97724;         /* Warm Autumn Amber / Gold */
-  --accent-fact: #7a4e69;        /* Warm Mulberry / Heather */
-  --accent-greet: #3d6b7e;       /* Lake Teal */
-  --border-color: #e3d6c7;       /* Soft tan border */
-  --shadow-color: rgba(45, 36, 30, 0.08);
-}
-
-/* Dark Mode Palette: Earthy Slate & Amber Glow */
-body.dark-mode {
-  --bg-main: #1d1a17;            /* Roasted espresso slate */
-  --bg-card: #28231f;            /* Warm dark brown box background */
-  --text-main: #f2ece4;          /* Warm cream text */
-  --text-muted: #c7bbb0;         /* Soft beige muted text */
-  --primary: #e08353;            /* Warm amber pumpkin */
-  --secondary: #9cb09e;          /* Light sage green */
-  --accent-fun: #e59342;         /* Autumn leaf orange */
-  --accent-fact: #b88ba8;        /* Soft heather violet */
-  --accent-greet: #6fa0b5;       /* Muted sky/lake blue */
-  --border-color: #3b322a;       /* Dark earthy border */
-  --shadow-color: rgba(0, 0, 0, 0.4);
-}
-
-/* Global Reset & Box Model */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* Body Styling & Layout */
+/* Cozy fall webpage layout */
 body {
-  font-family: "Times New Roman", Times, Georgia, serif;
-  background-color: var(--bg-main);
-  color: var(--text-main);
-  max-width: 680px;
-  margin: 40px auto;
-  padding: 24px;
-  line-height: 1.7;
-  font-size: 18px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  position: relative;
-  overflow-x: hidden;
+    font-family: "Times New Roman", Times, serif;
+    background-color: #fcf6ed; /* Warm cozy parchment */
+    color: #4a3525; /* Dark warm brown text */
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    line-height: 1.6;
 }
 
-/* Headings */
+/* Cozy dark mode */
+body.dark-mode {
+    background-color: #221813; /* Deep cinnamon dark background */
+    color: #f4eae1;
+}
+
+/* Titles and section headings */
 h1 {
-  font-family: "Times New Roman", Times, Georgia, serif;
-  color: var(--primary);
-  font-size: 2.2rem;
-  font-weight: normal;
-  border-bottom: 2px solid var(--primary);
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  letter-spacing: 0.5px;
+    color: #c05a30; /* Pumpkin terracotta */
+    text-align: center;
 }
 
 h2 {
-  font-family: "Times New Roman", Times, Georgia, serif;
-  color: var(--secondary);
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: 36px;
-  margin-bottom: 16px;
+    color: #6b705c; /* Muted sage leaf green */
+    border-bottom: 2px solid #d9822b; /* Amber autumn underline */
+    padding-bottom: 5px;
+    margin-top: 30px;
 }
 
-p {
-  margin-bottom: 18px;
+body.dark-mode h1 {
+    color: #e07043;
 }
 
-/* Interactive Buttons */
+body.dark-mode h2 {
+    color: #929982;
+    border-bottom-color: #e59943;
+}
+
+/* Button layout */
 .button-group {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 25px;
 }
 
-.theme-btn, .fun-btn, .fact-btn, .greet-btn {
-  font-family: "Times New Roman", Times, Georgia, serif;
-  border: 1px solid transparent;
-  padding: 10px 18px;
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #ffffff;
-  transition: transform 0.15s ease, opacity 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 5px var(--shadow-color);
+/* Base button style */
+button {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
+/* Fall button colors */
 .theme-btn {
-  background-color: var(--secondary);
+    background-color: #6b705c; /* Sage green */
+    color: white;
 }
 
 .fun-btn {
-  background-color: var(--accent-fun);
+    background-color: #c05a30; /* Pumpkin spice */
+    color: white;
 }
 
 .fact-btn {
-  background-color: var(--accent-fact);
+    background-color: #d9822b; /* Warm amber */
+    color: white;
 }
 
 .greet-btn {
-  background-color: var(--accent-greet);
+    background-color: #8b5a3c; /* Warm acorn brown */
+    color: white;
 }
 
-.theme-btn:hover, .fun-btn:hover, .fact-btn:hover, .greet-btn:hover {
-  opacity: 0.92;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px var(--shadow-color);
-}
-
-/* Fact Container Box */
+/* Trivia fact box */
 .fact-box {
-  background-color: var(--bg-card);
-  border-left: 5px solid var(--accent-fact);
-  border-top: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-  padding: 18px 22px;
-  margin: 24px 0;
-  border-radius: 6px;
-  box-shadow: 0 3px 8px var(--shadow-color);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+    background-color: #f3e9da;
+    border-left: 5px solid #d9822b;
+    padding: 12px 16px;
+    margin: 20px 0;
+    border-radius: 4px;
 }
 
-/* Image Styling (Single Image & Grid) */
+body.dark-mode .fact-box {
+    background-color: #33251e;
+    color: #f4eae1;
+}
+
+/* Featured images */
 .featured-image {
-  width: 100%;
-  height: auto;
-  max-height: 380px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin: 24px 0;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 12px var(--shadow-color);
-  display: block;
-}
-
-/* Responsive Image Grid (for displaying Tech + Fall images side-by-side) */
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  margin: 24px 0;
-}
-
-.image-grid img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 3px 8px var(--shadow-color);
-}
-
-/* Lists */
-ul {
-  background-color: var(--bg-card);
-  padding: 22px 28px 22px 48px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 2px 6px var(--shadow-color);
-  margin-bottom: 24px;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-li {
-  margin-bottom: 12px;
-  line-height: 1.6;
-}
-
-li:last-child {
-  margin-bottom: 0;
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    margin: 15px auto;
+    border-radius: 8px;
+    border: 2px solid #6b705c;
 }
 
 /* Links */
 a {
-  color: var(--primary);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  font-weight: bold;
-  transition: color 0.2s ease;
+    color: #c05a30;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 a:hover {
-  color: var(--accent-fun);
+    color: #d9822b;
 }
 
-/* Confetti Animation */
+body.dark-mode a {
+    color: #e07043;
+}
+
+/* Lists */
+ul, ol {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* Confetti emojis */
 .confetti-piece {
-  position: fixed;
-  font-size: 24px;
-  pointer-events: none;
-  animation: floatUp 2s ease-out forwards;
-  z-index: 1000;
+    position: fixed;
+    font-size: 24px;
+    pointer-events: none;
+    animation: fadeUp 2s forwards;
 }
 
-@keyframes floatUp {
-  0% {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotate(0deg);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-250px) scale(1.5) rotate(360deg);
-  }
+@keyframes fadeUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+}
+
+/* --- MOVING SNOOPY ANIMATION --- */
+
+.snoopy-walker {
+    position: fixed; /* Keeps him locked near the bottom of the screen */
+    bottom: 10px;
+    left: -100px; /* Starts off-screen to the left */
+    width: 70px; /* Small, subtle character size */
+    z-index: 999;
+    pointer-events: none; /* Allows you to click things through him */
+    animation: walkAcross 16s linear infinite; /* Takes 16 seconds to walk across and repeat */
+}
+
+/* Controls Snoopy's movement path */
+@keyframes walkAcross {
+    0% {
+        left: -100px;
+        transform: scaleX(1); /* Facing right */
+    }
+    48% {
+        left: 100vw; /* Reaches the right edge */
+        transform: scaleX(1);
+    }
+    50% {
+        left: 100vw;
+        transform: scaleX(-1); /* Flips around to face left */
+    }
+    98% {
+        left: -100px; /* Walks back to left side */
+        transform: scaleX(-1);
+    }
+    100% {
+        left: -100px;
+        transform: scaleX(1); /* Turns back facing right */
+    }
 }
