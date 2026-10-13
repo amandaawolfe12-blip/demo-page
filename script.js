@@ -151,3 +151,17 @@ function generateRandomActivity() {
         resultBox.innerHTML = "✨ <strong>Your Autumn Plan:</strong> " + randomActivity + " alongside " + randomTreat + " " + randomVibe + "!";
     }
 }
+
+var cozyAudio = new Audio("https://www.soundjay.com/nature/sounds/rain-01.mp3");
+cozyAudio.loop = true;
+
+function toggleCozyAudio() {
+    var button = document.getElementById("audio-btn");
+    if (cozyAudio.paused) {
+        cozyAudio.play();
+        button.textContent = "🔊 Pause Rain Sounds";
+    } else {
+        cozyAudio.pause();
+        button.textContent = "🌧️ Play Rain Sounds";
+    }
+}
